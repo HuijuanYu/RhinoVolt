@@ -1,0 +1,18 @@
+{
+  "name": "supervisor-api",
+  "version": "1.0.0",
+  "description": "监理小程序后端API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2"
+  }
+}

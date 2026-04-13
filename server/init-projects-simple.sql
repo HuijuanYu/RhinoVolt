@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS projects (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(200) NOT NULL,
+  owner VARCHAR(200),
+  constructor VARCHAR(200),
+  supervisor VARCHAR(200),
+  location VARCHAR(500),
+  description TEXT,
+  start_date DATE,
+  end_date DATE,
+  progress INT DEFAULT 0,
+  status VARCHAR(50) DEFAULT 'ongoing',
+  supervisor_id INT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (supervisor_id) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
