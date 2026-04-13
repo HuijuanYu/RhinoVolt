@@ -1,0 +1,152 @@
+<view class="container">
+  <!-- 巡检任务基本信息 -->
+  <view class="info-section">
+    <h2>任务信息</h2>
+    <view class="info-grid">
+      <view class="info-item">
+        <text class="info-label">巡检标题</text>
+        <text class="info-value">{{inspectionTask.title}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">工程名称</text>
+        <text class="info-value">{{inspectionTask.projectName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">巡检类型</text>
+        <text class="info-value">{{inspectionTask.type}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">巡检区域</text>
+        <text class="info-value">{{inspectionTask.area}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">计划时间</text>
+        <text class="info-value">{{inspectionTask.planTime}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">巡检人员</text>
+        <text class="info-value">{{inspectionTask.inspector}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 巡检项列表 -->
+  <view class="inspection-items">
+    <h2>巡检内容</h2>
+    <view class="item-list">
+      <view class="item-card" wx:for="{{inspectionItems}}" wx:key="id">
+        <view class="item-header">
+          <text class="item-title">{{item.title}}</text>
+          <text class="item-standard">{{item.standard}}</text>
+        </view>
+        <view class="item-content">
+          <text class="item-description">{{item.description}}</text>
+        </view>
+        <view class="item-check">
+          <text class="check-label">检查结果</text>
+          <view class="check-options">
+            <radio-group bindchange="handleCheckResult" data-id="{{item.id}}">
+              <label class="radio-label">
+                <radio value="pass" checked="{{item.result === 'pass'}}"></radio>
+                <text class="radio-text">合格</text>
+              </label>
+              <label class="radio-label">
+                <radio value="fail" checked="{{item.result === 'fail'}}"></radio>
+                <text class="radio-text">不合格</text>
+              </label>
+              <label class="radio-label">
+                <radio value="na" checked="{{item.result === 'na'}}"></radio>
+                <text class="radio-text">不适用</text>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        <view class="item-remark" wx:if="{{item.result === 'fail'}}">
+          <text class="remark-label">问题描述</text>
+          <textarea placeholder="请描述发现的问题" value="{{item.remark}}" bindinput="handleRemark" data-id="{{item.id}}"></textarea>
+        </view>
+        <view class="item-photos" wx:if="{{item.result === 'fail'}}">
+          <text class="photos-label">问题照片</text>
+          <view class="photo-uploader">
+            <view class="photo-list">
+              <view class="photo-item" wx:for="{{item.photos}}" wx:key="index">
+                <image src="{{item}}" mode="aspectFill"></image>
+                <view class="photo-delete" bindtap="handleDeletePhoto" data-item-id="{{item.id}}" data-photo-index="{{index}}">
+                  <text>×</text>
+                </view>
+              </view>
+              <view class="photo-upload" bindtap="handleUploadPhoto" data-id="{{item.id}}" wx:if="{{item.photos.length < 5}}">
+                <text>+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 总体评价 -->
+  <view class="evaluation-section">
+    <h2>总体评价</h2>
+    <view class="evaluation-content">
+      <textarea placeholder="请输入总体评价和建议" value="{{overallEvaluation}}" bindinput="handleOverallEvaluation"></textarea>
+    </view>
+  </view>
+  
+  <!-- 操作按钮 -->
+  <view class="action-buttons" wx:if="{{!viewOnly}}">
+    <button class="btn btn-secondary" bindtap="handleSaveDraft">
+      保存草稿
+    </button>
+    <button class="btn btn-primary" bindtap="handleSubmitInspection">
+      提交巡检
+    </button>
+  </view>
+  
+  <!-- 查看模式下的操作按钮 -->
+  <view class="action-buttons" wx:if="{{viewOnly}}">
+    <button class="btn btn-primary" bindtap="handleBack">
+      返回
+    </button>
+  </view>
+  
+  <!-- 整改确认弹窗 -->
+  <view class="modal" wx:if="{{showRectificationConfirm}}">
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">整改确认</text>
+      </view>
+      <view class="modal-body">
+        <text>该项目检查不合格，需要生成整改单吗？</text>
+      </view>
+      <view class="modal-footer">
+        <button class="btn btn-secondary" bindtap="handleRectificationCancel">
+          取消
+        </button>
+        <button class="btn btn-primary" bindtap="handleRectificationConfirm">
+          确认整改
+        </button>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 人员确认弹窗 -->
+  <view class="modal" wx:if="{{showPersonConfirm}}">
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">人员确认</text>
+      </view>
+      <view class="modal-body">
+        <text>请选择确认方式</text>
+        <view class="confirm-methods">
+          <view class="method-item" bindtap="handleConfirmMethod" data-method="onsite">
+            <text>现场确认</text>
+          </view>
+          <view class="method-item" bindtap="handleConfirmMethod" data-method="remote">
+            <text>远程确认</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">🎯 监理工作方法</text>
+    <text class="page-subtitle">旁站、巡视、平行检验、见证取样</text>
+  </view>
+  
+  <view class="method-list">
+    <view class="method-card" wx:for="{{methods}}" wx:key="id">
+      <view class="method-icon">{{item.icon}}</view>
+      <view class="method-content">
+        <text class="method-name">{{item.name}}</text>
+        <text class="method-desc">{{item.description}}</text>
+        <view class="method-apply">
+          <text class="apply-label">适用范围：</text>
+          <text class="apply-text">{{item.apply}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

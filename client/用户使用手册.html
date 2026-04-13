@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电力新能源工程监理管理系统 - 用户使用手册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "SimHei", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: white;
+        }
+        
+        h1 {
+            font-size: 28px;
+            color: #1890ff;
+            text-align: center;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #1890ff;
+            padding-bottom: 15px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 22px;
+            color: #1890ff;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8e8e8;
+            page-break-after: avoid;
+        }
+        
+        h3 {
+            font-size: 18px;
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            page-break-after: avoid;
+        }
+        
+        h4 {
+            font-size: 16px;
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #1890ff;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .highlight {
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-left: 4px solid #1890ff;
+            margin: 15px 0;
+        }
+        
+        .warning {
+            background-color: #fff7e6;
+            padding: 15px;
+            border-left: 4px solid #fa8c16;
+            margin: 15px 0;
+        }
+        
+        .tip {
+            background-color: #f6ffed;
+            padding: 15px;
+            border-left: 4px solid #52c41a;
+            margin: 15px 0;
+        }
+        
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+        
+        .toc {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            color: #1890ff;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            padding: 5px 0;
+            border-bottom: 1px dotted #ddd;
+        }
+        
+        .toc a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            color: #1890ff;
+        }
+        
+        .icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #e8e8e8;
+            margin: 30px 0;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #e8e8e8;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                padding: 10mm;
+            }
+            
+            h2 {
+                page-break-before: always;
+            }
+            
+            h2:first-of-type {
+                page-break-before: avoid;
+            }
+            
+            .toc {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>电力新能源工程监理管理系统</h1>
+    <p class="subtitle">用户使用手册 V1.0</p>
+    
+    <div class="toc">
+        <h3>📋 目录</h3>
+        <ul>
+            <li><a href="#section1">一、系统概述</a></li>
+            <li><a href="#section2">二、系统功能</a></li>
+            <li><a href="#section3">三、快速入门</a></li>
+            <li><a href="#section4">四、功能模块详解</a></li>
+            <li><a href="#section5">五、操作指南</a></li>
+            <li><a href="#section6">六、常见问题</a></li>
+            <li><a href="#section7">七、技术支持</a></li>
+        </ul>
+    </div>
+
+    <h2 id="section1">一、系统概述</h2>
+    
+    <h3>1.1 系统简介</h3>
+    <p><strong>电力新能源工程监理管理系统</strong>是一款专为电力新能源工程项目设计的监理管理工具。系统涵盖了工程监理的全流程管理，包括工地概况、监理工作依据、工程特点分析、监理工作流程、工作方法、工作措施、质量控制、进度控制等核心功能模块。</p>
+    
+    <h3>1.2 适用对象</h3>
+    <ul>
+        <li>监理工程师</li>
+        <li>项目经理</li>
+        <li>施工单位管理人员</li>
+        <li>建设单位管理人员</li>
+        <li>质量监督人员</li>
+    </ul>
+    
+    <h3>1.3 系统特点</h3>
+    <div class="highlight">
+        <p><span class="icon">📱</span> <strong>移动端优先</strong>：基于微信小程序，随时随地访问</p>
+        <p><span class="icon">🔧</span> <strong>功能全面</strong>：覆盖监理工作全流程</p>
+        <p><span class="icon">📊</span> <strong>数据可视化</strong>：进度、质量数据一目了然</p>
+        <p><span class="icon">🔔</span> <strong>实时提醒</strong>：待办事项及时推送</p>
+        <p><span class="icon">📝</span> <strong>文档管理</strong>：工程资料云端存储</p>
+    </div>
+
+    <h2 id="section2">二、系统功能</h2>
+    
+    <h3>2.1 功能模块总览</h3>
+    <table>
+        <tr>
+            <th>模块</th>
+            <th>功能描述</th>
+            <th>适用场景</th>
+        </tr>
+        <tr>
+            <td>🏭 工地概况</td>
+            <td>查看工程基本信息、参建单位、工程进度</td>
+            <td>了解项目整体情况</td>
+        </tr>
+        <tr>
+            <td>📋 监理依据</td>
+            <td>查看法律法规、合同文件、技术标准</td>
+            <td>监理工作参考</td>
+        </tr>
+        <tr>
+            <td>🔧 工程特点</td>
+            <td>分析工程难点、重点控制部位</td>
+            <td>制定监理方案</td>
+        </tr>
+        <tr>
+            <td>🔄 工作流程</td>
+            <td>查看质量、进度、安全控制流程</td>
+            <td>规范监理工作</td>
+        </tr>
+        <tr>
+            <td>🎯 工作方法</td>
+            <td>了解旁站、巡视、平行检验等方法</td>
+            <td>现场监理操作</td>
+        </tr>
+        <tr>
+            <td>🛡️ 工作措施</td>
+            <td>查看组织、技术、经济、合同措施</td>
+            <td>监理管理手段</td>
+        </tr>
+        <tr>
+            <td>✨ 质量控制</td>
+            <td>材料、工序、隐蔽工程验收管理</td>
+            <td>质量监督管理</td>
+        </tr>
+        <tr>
+            <td>⏱️ 进度控制</td>
+            <td>进度计划、检查、预警管理</td>
+            <td>进度监督管理</td>
+        </tr>
+        <tr>
+            <td>🔍 日常巡检</td>
+            <td>现场巡检、问题整改、记录管理</td>
+            <td>现场日常管理</td>
+        </tr>
+        <tr>
+            <td>📄 文档管理</td>
+            <td>工程资料、合同文件管理</td>
+            <td>资料归档管理</td>
+        </tr>
+    </table>
+
+    <h2 id="section3">三、快速入门</h2>
+    
+    <h3>3.1 首次使用</h3>
+    
+    <h4>步骤1：登录系统</h4>
+    <ol>
+        <li>打开微信小程序，搜索"电力新能源"</li>
+        <li>进入登录页面</li>
+        <li>输入用户名和密码</li>
+        <li>点击"登录"按钮</li>
+    </ol>
+    
+    <h4>步骤2：了解工程概况</h4>
+    <ol>
+        <li>点击首页"工地概况"</li>
+        <li>查看工程基本信息</li>
+        <li>了解参建单位信息</li>
+        <li>查看工程进度</li>
+    </ol>
+    
+    <div class="tip">
+        <strong>提示：</strong>首次登录后建议先浏览各个功能模块，熟悉系统界面和操作流程。
+    </div>
+
+    <h2 id="section4">四、功能模块详解</h2>
+    
+    <h3>4.1 🏭 工地概况</h3>
+    <p><strong>功能说明：</strong>展示工程的基本信息、参建单位信息和工程进度。</p>
+    
+    <h4>主要内容</h4>
+    <ul>
+        <li><strong>工程基本信息</strong>：工程名称、地点、规模、类型、工期、投资</li>
+        <li><strong>参建单位</strong>：建设单位、设计单位、施工单位、监理单位</li>
+        <li><strong>工程进度</strong>：总体进度、各分项工程进度</li>
+    </ul>
+    
+    <h4>操作步骤</h4>
+    <ol>
+        <li>在首页点击"工地概况"图标</li>
+        <li>查看工程基本信息卡片</li>
+        <li>滑动查看参建单位信息</li>
+        <li>查看工程进度条</li>
+    </ol>
+
+    <h3>4.2 📋 监理工作依据</h3>
+    <p><strong>功能说明：</strong>汇总监理工作所需的法律法规、合同文件、设计文件和技术标准。</p>
+    
+    <h4>主要内容</h4>
+    <ul>
+        <li><strong>法律法规</strong>：《建筑法》、《建设工程质量管理条例》等</li>
+        <li><strong>合同文件</strong>：监理合同、施工合同、设计合同</li>
+        <li><strong>设计文件</strong>：初步设计、施工图设计、设计变更</li>
+        <li><strong>技术标准</strong>：国家标准、行业标准、地方标准</li>
+    </ul>
+
+    <h3>4.3 🔧 工程特点分析</h3>
+    <p><strong>功能说明：</strong>分析工程的技术难点、重点控制部位和关键工序。</p>
+    
+    <h4>主要内容</h4>
+    <ul>
+        <li><strong>工程难点</strong>：大体积混凝土浇筑、高空作业、电气调试等</li>
+        <li><strong>重点控制部位</strong>：光伏组件安装、逆变器安装、升压站建设</li>
+        <li><strong>关键工序</strong>：基础施工、设备安装、系统调试</li>
+    </ul>
+
+    <h3>4.4 🔄 监理工作流程</h3>
+    <p><strong>功能说明：</strong>展示质量、进度、投资、安全控制的完整工作流程。</p>
+    
+    <div class="highlight">
+        <p><strong>质量控制流程：</strong>准备检查 → 材料验收 → 工序检查 → 隐蔽验收 → 分项验收 → 竣工验收</p>
+        <p><strong>进度控制流程：</strong>审核计划 → 检查执行 → 分析偏差 → 纠偏措施 → 调整计划</p>
+        <p><strong>安全监理流程：</strong>审查方案 → 检查措施 → 发现隐患 → 督促整改 → 复查验收</p>
+    </div>
+
+    <h3>4.5 🎯 监理工作方法</h3>
+    <p><strong>功能说明：</strong>介绍监理工作中常用的方法和技术手段。</p>
+    
+    <table>
+        <tr>
+            <th>方法</th>
+            <th>说明</th>
+            <th>适用范围</th>
+        </tr>
+        <tr>
+            <td>旁站监理</td>
+            <td>对关键部位、关键工序全过程监督</td>
+            <td>混凝土浇筑、预应力张拉等</td>
+        </tr>
+        <tr>
+            <td>巡视检查</td>
+            <td>定期或不定期现场巡查</td>
+            <td>日常施工质量检查</td>
+        </tr>
+        <tr>
+            <td>平行检验</td>
+            <td>独立进行质量检测</td>
+            <td>材料检测、实体检测</td>
+        </tr>
+        <tr>
+            <td>见证取样</td>
+            <td>现场见证样品采集</td>
+            <td>原材料取样检测</td>
+        </tr>
+    </table>
+
+    <h3>4.6 ✨ 质量控制</h3>
+    <p><strong>功能说明：</strong>全面的质量监督管理功能，包括材料、工序、隐蔽工程和验收管理。</p>
+    
+    <h4>主要功能</h4>
+    <ul>
+        <li><strong>质量控制要点</strong>：材料质量、工序质量、隐蔽工程、分部分项验收</li>
+        <li><strong>质量检查记录</strong>：检查记录列表、新增记录、查看详情</li>
+        <li><strong>质量问题整改</strong>：问题列表、整改进度、验收确认</li>
+    </ul>
+    
+    <h4>操作流程</h4>
+    <ol>
+        <li>在首页点击"质量控制"图标</li>
+        <li>查看质量控制要点列表</li>
+        <li>点击"新增检查记录"按钮</li>
+        <li>填写检查内容、结果、照片</li>
+        <li>提交记录</li>
+    </ol>
+
+    <h3>4.7 ⏱️ 进度控制</h3>
+    <p><strong>功能说明：</strong>工程进度管理功能，包括进度计划、进度检查和进度预警。</p>
+    
+    <h4>主要内容</h4>
+    <ul>
+        <li><strong>进度概况</strong>：计划工期、已进行天数、剩余工期、总体进度</li>
+        <li><strong>进度计划</strong>：各分项工程计划、进度条展示</li>
+        <li><strong>进度预警</strong>：进度滞后预警、风险提醒</li>
+    </ul>
+
+    <h3>4.8 🔍 日常巡检</h3>
+    <p><strong>功能说明：</strong>现场巡检管理功能，包括巡检任务、巡检记录和问题整改。</p>
+    
+    <h4>操作流程</h4>
+    <ol>
+        <li>在首页点击"日常巡检"图标</li>
+        <li>查看待巡检任务列表</li>
+        <li>点击任务开始巡检</li>
+        <li>填写巡检结果、拍照记录</li>
+        <li>提交巡检记录</li>
+    </ol>
+
+    <h2 id="section5">五、操作指南</h2>
+    
+    <h3>5.1 登录与退出</h3>
+    
+    <h4>登录</h4>
+    <ol>
+        <li>打开微信小程序</li>
+        <li>输入用户名</li>
+        <li>输入密码</li>
+        <li>点击"登录"</li>
+    </ol>
+    
+    <h4>退出</h4>
+    <ol>
+        <li>进入首页</li>
+        <li>点击右上角"退出登录"</li>
+        <li>确认退出</li>
+    </ol>
+
+    <h3>5.2 处理质量问题</h3>
+    <ol>
+        <li>在"质量控制"中查看问题列表</li>
+        <li>点击问题查看详情</li>
+        <li>点击"生成整改通知单"</li>
+        <li>填写整改要求</li>
+        <li>发送给施工单位</li>
+        <li>跟踪整改进度</li>
+        <li>整改完成后验收</li>
+    </ol>
+
+    <h2 id="section6">六、常见问题</h2>
+    
+    <div class="warning">
+        <h4>Q1：忘记密码怎么办？</h4>
+        <p><strong>A：</strong>请联系系统管理员重置密码。在登录页面点击"忘记密码"，按提示操作。</p>
+    </div>
+    
+    <div class="warning">
+        <h4>Q2：巡检时无法上传照片？</h4>
+        <p><strong>A：</strong></p>
+        <ol>
+            <li>检查网络连接</li>
+            <li>检查微信相册权限</li>
+            <li>尝试重新拍摄</li>
+            <li>如仍有问题，联系技术支持</li>
+        </ol>
+    </div>
+    
+    <div class="warning">
+        <h4>Q3：质量问题整改流程是怎样的？</h4>
+        <p><strong>A：</strong></p>
+        <ol>
+            <li>监理发现问题并记录</li>
+            <li>生成整改通知单</li>
+            <li>施工单位接收并整改</li>
+            <li>整改完成后申请验收</li>
+            <li>监理验收确认</li>
+        </ol>
+    </div>
+    
+    <div class="tip">
+        <h4>Q4：如何查看历史巡检记录？</h4>
+        <p><strong>A：</strong>进入"日常巡检"模块，点击"历史记录"查看。</p>
+    </div>
+
+    <h2 id="section7">七、技术支持</h2>
+    
+    <h3>联系方式</h3>
+    <ul>
+        <li><strong>技术支持电话</strong>：400-xxx-xxxx</li>
+        <li><strong>技术支持邮箱</strong>：support@example.com</li>
+        <li><strong>在线客服</strong>：工作日 9:00-18:00</li>
+    </ul>
+    
+    <h3>反馈渠道</h3>
+    <ul>
+        <li>小程序内"意见反馈"功能</li>
+        <li>发送邮件至技术支持邮箱</li>
+        <li>拨打技术支持电话</li>
+    </ul>
+
+    <hr>
+    
+    <div class="footer">
+        <p><strong>电力新能源工程监理管理系统</strong></p>
+        <p>用户使用手册 V1.0</p>
+        <p>最后更新：2024-03-02</p>
+        <p>© 2024 技术支持部</p>
+    </div>
+    
+    <script>
+        // 打印提示
+        window.onload = function() {
+            console.log('提示：按 Ctrl+P 可以打印或保存为PDF');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<view class="container">
+  <view class="register-form">
+    <view class="logo">
+      <text class="logo-text">注册账号</text>
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">手机号</text>
+      <input 
+        class="form-input" 
+        type="number"
+        maxlength="11"
+        placeholder="请输入手机号" 
+        bindinput="bindPhoneInput"
+        value="{{phone}}"
+      />
+    </view>
+    
+    <view class="form-item code-item">
+      <view class="code-input-wrapper">
+        <text class="form-label">验证码</text>
+        <input 
+          class="form-input code-input" 
+          type="number"
+          maxlength="6"
+          placeholder="任意6位数字" 
+          bindinput="bindCodeInput"
+          value="{{code}}"
+        />
+      </view>
+      <button 
+        class="btn btn-code {{countdown > 0 ? 'btn-disabled' : ''}}" 
+        bindtap="handleSendCode"
+        disabled="{{countdown > 0 || sendingCode}}"
+      >
+        {{countdown > 0 ? countdown + '秒' : (sendingCode ? '发送中...' : '获取验证码')}}
+      </button>
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">密码</text>
+      <input 
+        class="form-input" 
+        placeholder="请输入密码" 
+        password="{{true}}" 
+        bindinput="bindPasswordInput"
+        value="{{password}}"
+      />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">确认密码</text>
+      <input 
+        class="form-input" 
+        placeholder="请再次输入密码" 
+        password="{{true}}" 
+        bindinput="bindConfirmPasswordInput"
+        value="{{confirmPassword}}"
+      />
+    </view>
+    
+    <button 
+      class="btn btn-primary register-btn" 
+      bindtap="handleRegister"
+      loading="{{loading}}"
+      disabled="{{loading}}"
+    >
+      {{loading ? '注册中...' : '注册'}}
+    </button>
+    
+    <view class="form-footer">
+      <text class="footer-link" bindtap="goToLogin">已有账号？立即登录</text>
+    </view>
+  </view>
+</view>

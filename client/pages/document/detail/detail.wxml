@@ -1,0 +1,94 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">文档详情</text>
+  </view>
+
+  <!-- 文档基本信息卡片 -->
+  <view class="info-card">
+    <!-- 文档标题 -->
+    <view class="document-title">
+      {{documentDetail.title}}
+    </view>
+    
+    <!-- 文档分类 -->
+    <view class="document-category">
+      {{documentDetail.categoryName}}
+    </view>
+    
+    <!-- 文档信息 -->
+    <view class="document-info">
+      <view class="info-item">
+        <text class="info-label">工程名称：</text>
+        <text class="info-value">{{documentDetail.projectName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">上传时间：</text>
+        <text class="info-value">{{documentDetail.uploadTime}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">上传人：</text>
+        <text class="info-value">{{documentDetail.uploader}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">文件大小：</text>
+        <text class="info-value">{{documentDetail.fileSize}}</text>
+      </view>
+    </view>
+    
+    <!-- 审批状态 -->
+    <view wx:if="{{documentDetail.needApproval}}" class="approval-status">
+      <text class="info-label">审批状态：</text>
+      <text class="status-badge {{documentDetail.approvalStatus}}">
+        {{documentDetail.approvalStatusText}}
+      </text>
+    </view>
+  </view>
+
+  <!-- 文档内容预览 -->
+  <view class="content-card">
+    <view class="card-header">
+      <text class="card-title">文档内容</text>
+    </view>
+    <view class="document-content">
+      <view class="content-placeholder">
+        <text class="placeholder-text">文档预览功能开发中...</text>
+        <text class="hint-text">请点击下方按钮下载查看完整文档</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 审批记录 -->
+  <view wx:if="{{documentDetail.needApproval}}" class="approval-card">
+    <view class="card-header">
+      <text class="card-title">审批记录</text>
+    </view>
+    <view class="approval-records">
+      <view wx:for="{{approvalRecords}}" wx:key="index" class="approval-item">
+        <view class="approval-header">
+          <text class="approver">{{item.approver}}</text>
+          <text class="approval-time">{{item.time}}</text>
+        </view>
+        <view class="approval-content">
+          <text class="approval-result {{item.status}}">{{item.statusText}}</text>
+          <text class="approval-comment">{{item.comment}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <button wx:if="{{documentDetail.needApproval && documentDetail.approvalStatus === 'pending' && isApprover}}" 
+            class="btn btn-primary" 
+            bindtap="approveDocument">
+      审批文档
+    </button>
+    <button class="btn btn-secondary" bindtap="downloadDocument">
+      下载文档
+    </button>
+    <button class="btn btn-secondary" bindtap="shareDocument">
+      分享文档
+    </button>
+  </view>
+</view>

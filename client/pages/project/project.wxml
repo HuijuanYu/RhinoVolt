@@ -1,0 +1,111 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input 
+      class="search-input" 
+      placeholder="搜索工程名称" 
+      bindinput="bindSearchInput"
+      value="{{searchText}}"
+    />
+    <button class="search-btn" bindtap="handleSearch">搜索</button>
+  </view>
+  
+  <!-- 工程状态筛选 -->
+  <view class="status-filter">
+    <view 
+      class="filter-item {{currentFilter === 'all' ? 'active' : ''}}" 
+      bindtap="handleFilter"
+      data-status="all"
+    >
+      全部
+    </view>
+    <view 
+      class="filter-item {{currentFilter === 'ongoing' ? 'active' : ''}}" 
+      bindtap="handleFilter"
+      data-status="ongoing"
+    >
+      进行中
+    </view>
+    <view 
+      class="filter-item {{currentFilter === 'completed' ? 'active' : ''}}" 
+      bindtap="handleFilter"
+      data-status="completed"
+    >
+      已完成
+    </view>
+    <view 
+      class="filter-item {{currentFilter === 'delayed' ? 'active' : ''}}" 
+      bindtap="handleFilter"
+      data-status="delayed"
+    >
+      延期
+    </view>
+  </view>
+  
+  <!-- 工程列表 -->
+  <view class="project-list">
+    <view 
+      class="project-item" 
+      wx:for="{{filteredProjects}}" 
+      wx:key="id"
+      bindtap="navigateToProjectDetail"
+      data-project-id="{{item.id}}"
+    >
+      <view class="project-header">
+        <text class="project-icon">🏗️</text>
+        <text class="project-name">{{item.name}}</text>
+        <view class="project-status" style="background-color: {{getStatusColor(item.status)}}">
+          {{getStatusText(item.status)}}
+        </view>
+      </view>
+      
+      <view class="project-info">
+        <view class="info-item">
+          <text class="info-label">建设单位：</text>
+          <text class="info-value">{{item.owner}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">施工单位：</text>
+          <text class="info-value">{{item.constructor}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">监理单位：</text>
+          <text class="info-value">{{item.supervisor}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">计划工期：</text>
+          <text class="info-value">{{item.startDate}} 至 {{item.endDate}}</text>
+        </view>
+      </view>
+      
+      <view class="project-progress">
+        <view class="progress-header">
+          <text class="progress-label">工程进度</text>
+          <text class="progress-value">{{item.progress}}%</text>
+        </view>
+        <view class="progress-bar">
+          <view class="progress-fill" style="width: {{item.progress}}%"></view>
+        </view>
+      </view>
+      
+      <view class="project-actions">
+        <button class="action-btn primary" bindtap="handleViewDetail" data-project-id="{{item.id}}">
+          查看详情
+        </button>
+        <button class="action-btn secondary" bindtap="handleEditProject" data-project-id="{{item.id}}">
+          编辑
+        </button>
+      </view>
+    </view>
+    
+    <!-- 空状态 -->
+    <view class="empty" wx:if="{{filteredProjects.length === 0}}">
+      <text>暂无工程信息</text>
+    </view>
+  </view>
+  
+  <!-- 添加工程按钮 -->
+  <button class="add-btn" bindtap="handleAddProject">
+    <text class="add-btn-text">+ 添加工程</text>
+  </button>
+</view>

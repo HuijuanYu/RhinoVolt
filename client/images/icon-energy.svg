@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" width="144" height="144">
+  <!-- 背景圆形 -->
+  <circle cx="72" cy="72" r="70" fill="#1890ff"/>
+  
+  <!-- 闪电符号 -->
+  <path d="M85 25 L55 70 L75 70 L65 119 L95 65 L75 65 Z" 
+        fill="#ffffff" 
+        stroke="#ffffff" 
+        stroke-width="2"
+        stroke-linejoin="round"/>
+  
+  <!-- 装饰性圆环 -->
+  <circle cx="72" cy="72" r="60" 
+          fill="none" 
+          stroke="#ffffff" 
+          stroke-width="3"
+          opacity="0.3"/>
+</svg>

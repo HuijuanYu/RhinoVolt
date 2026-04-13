@@ -1,0 +1,99 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">文档管理</text>
+  </view>
+  
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input type="text" placeholder="搜索文档名称" value="{{searchKeyword}}" bindinput="handleSearchInput"></input>
+    <button class="search-btn" bindtap="handleSearch">搜索</button>
+  </view>
+  
+  <!-- 文档分类 -->
+  <view class="document-categories">
+    <scroll-view scroll-x="true" class="category-scroll">
+      <view class="category-item {{activeCategory === 'all' ? 'active' : ''}}" bindtap="switchCategory" data-category="all">
+        <text>全部</text>
+      </view>
+      <view class="category-item {{activeCategory === 'design' ? 'active' : ''}}" bindtap="switchCategory" data-category="design">
+        <text>设计文档</text>
+      </view>
+      <view class="category-item {{activeCategory === 'construction' ? 'active' : ''}}" bindtap="switchCategory" data-category="construction">
+        <text>施工文档</text>
+      </view>
+      <view class="category-item {{activeCategory === 'supervision' ? 'active' : ''}}" bindtap="switchCategory" data-category="supervision">
+        <text>监理文档</text>
+      </view>
+      <view class="category-item {{activeCategory === 'inspection' ? 'active' : ''}}" bindtap="switchCategory" data-category="inspection">
+        <text>巡检记录</text>
+      </view>
+      <view class="category-item {{activeCategory === 'approval' ? 'active' : ''}}" bindtap="switchCategory" data-category="approval">
+        <text>审批文件</text>
+      </view>
+    </scroll-view>
+  </view>
+  
+  <!-- 文档列表 -->
+  <view class="document-list">
+    <view class="section-header">
+      <text class="section-title">最近文档</text>
+      <text class="document-count">{{filteredDocuments.length}} 份</text>
+    </view>
+    
+    <!-- 文档卡片 -->
+    <view class="document-card" wx:for="{{filteredDocuments}}" wx:key="id">
+      <view class="document-header">
+        <text class="document-title">{{item.title}}</text>
+        <text class="document-category">{{item.categoryName}}</text>
+      </view>
+      <view class="document-info">
+        <view class="info-item">
+          <text class="info-label">工程名称</text>
+          <text class="info-value">{{item.projectName}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">上传时间</text>
+          <text class="info-value">{{item.uploadTime}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">上传人员</text>
+          <text class="info-value">{{item.uploader}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">文件大小</text>
+          <text class="info-value">{{item.fileSize}}</text>
+        </view>
+      </view>
+      <view class="document-status" wx:if="{{item.needApproval}}">
+        <text class="status-label">审批状态</text>
+        <text class="status-value {{item.approvalStatus}}">
+          {{item.approvalStatusText}}
+        </text>
+      </view>
+      <view class="document-actions">
+        <button class="btn btn-primary" bindtap="viewDocument" data-id="{{item.id}}">
+          查看文档
+        </button>
+        <button class="btn btn-secondary" bindtap="downloadDocument" data-id="{{item.id}}">
+          下载文档
+        </button>
+        <button class="btn btn-secondary" wx:if="{{item.needApproval && item.approvalStatus === 'pending'}}" bindtap="approveDocument" data-id="{{item.id}}">
+          审批
+        </button>
+      </view>
+    </view>
+    
+    <!-- 无文档时显示 -->
+    <view class="empty-state" wx:if="{{filteredDocuments.length === 0}}">
+      <text>暂无文档</text>
+    </view>
+  </view>
+  
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <button class="btn btn-primary full-width" bindtap="uploadDocument">
+      上传文档
+    </button>
+  </view>
+</view>

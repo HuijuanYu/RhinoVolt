@@ -1,0 +1,105 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">日常巡检</text>
+  </view>
+  
+  <!-- 巡检任务列表 -->
+  <view class="inspection-list">
+    <view class="section-header">
+      <text class="section-title">待巡检任务</text>
+      <text class="task-count">{{pendingTasks.length}} 项</text>
+    </view>
+    
+    <!-- 待巡检任务 -->
+    <view class="task-card" wx:for="{{pendingTasks}}" wx:key="id">
+      <view class="task-header">
+        <text class="task-icon">🔍</text>
+        <text class="task-title">{{item.title}}</text>
+        <text class="task-status pending">待巡检</text>
+      </view>
+      <view class="task-info">
+        <view class="info-item">
+          <text class="info-label">工程名称</text>
+          <text class="info-value">{{item.projectName}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">巡检类型</text>
+          <text class="info-value">{{item.type}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">计划时间</text>
+          <text class="info-value">{{item.planTime}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">巡检区域</text>
+          <text class="info-value">{{item.area}}</text>
+        </view>
+      </view>
+      <view class="task-actions">
+        <button class="btn btn-primary" bindtap="startInspection" data-id="{{item.id}}">
+          开始巡检
+        </button>
+        <button class="btn btn-secondary" bindtap="viewTaskDetail" data-id="{{item.id}}">
+          查看详情
+        </button>
+      </view>
+    </view>
+    
+    <!-- 无待巡检任务时显示 -->
+    <view class="empty-state" wx:if="{{pendingTasks.length === 0}}">
+      <text>暂无待巡检任务</text>
+    </view>
+    
+    <!-- 已完成巡检任务 -->
+    <view class="section-header" style="margin-top: 40rpx;">
+      <text class="section-title">已完成巡检</text>
+      <text class="task-count">{{completedTasks.length}} 项</text>
+    </view>
+    
+    <view class="task-card completed" wx:for="{{completedTasks}}" wx:key="id">
+      <view class="task-header">
+        <text class="task-icon">✅</text>
+        <text class="task-title">{{item.title}}</text>
+        <text class="task-status completed">已完成</text>
+      </view>
+      <view class="task-info">
+        <view class="info-item">
+          <text class="info-label">工程名称</text>
+          <text class="info-value">{{item.projectName}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">巡检类型</text>
+          <text class="info-value">{{item.type}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">完成时间</text>
+          <text class="info-value">{{item.completeTime}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">巡检结果</text>
+          <text class="info-value" style="color: {{item.result === 'pass' ? '#52c41a' : '#ff4d4f'}}">
+            {{item.result === 'pass' ? '合格' : '不合格'}}
+          </text>
+        </view>
+      </view>
+      <view class="task-actions">
+        <button class="btn btn-secondary" bindtap="viewInspectionRecord" data-id="{{item.id}}">
+          查看记录
+        </button>
+      </view>
+    </view>
+    
+    <!-- 无已完成巡检任务时显示 -->
+    <view class="empty-state" wx:if="{{completedTasks.length === 0}}">
+      <text>暂无已完成巡检任务</text>
+    </view>
+  </view>
+  
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <button class="btn btn-primary full-width" bindtap="createInspectionTask">
+      新建巡检任务
+    </button>
+  </view>
+</view>

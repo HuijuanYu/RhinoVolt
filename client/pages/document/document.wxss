@@ -1,0 +1,263 @@
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 页面标题 */
+.page-header {
+  margin-bottom: 30rpx;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 搜索栏 */
+.search-bar {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.search-bar input {
+  flex: 1;
+  height: 80rpx;
+  border: 2rpx solid #d9d9d9;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  background-color: white;
+}
+
+.search-btn {
+  width: 120rpx;
+  height: 80rpx;
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 文档分类 */
+.document-categories {
+  margin-bottom: 24rpx;
+}
+
+.category-scroll {
+  white-space: nowrap;
+}
+
+.category-item {
+  display: inline-block;
+  padding: 12rpx 24rpx;
+  margin-right: 16rpx;
+  background-color: white;
+  border: 2rpx solid #d9d9d9;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  color: #666;
+  cursor: pointer;
+}
+
+.category-item.active {
+  background-color: #1890ff;
+  color: white;
+  border-color: #1890ff;
+}
+
+/* 文档列表 */
+.document-list {
+  margin-bottom: 100rpx;
+}
+
+/* 区域标题 */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.document-count {
+  font-size: 24rpx;
+  color: #999;
+  background-color: #f0f0f0;
+  padding: 4rpx 16rpx;
+  border-radius: 12rpx;
+}
+
+/* 文档卡片 */
+.document-card {
+  background-color: white;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 文档头部 */
+.document-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.document-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.document-category {
+  font-size: 22rpx;
+  color: #1890ff;
+  background-color: #e6f7ff;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+}
+
+/* 文档信息 */
+.document-info {
+  margin-bottom: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  margin-bottom: 12rpx;
+}
+
+.info-label {
+  font-size: 24rpx;
+  color: #999;
+  width: 120rpx;
+  flex-shrink: 0;
+}
+
+.info-value {
+  font-size: 24rpx;
+  color: #333;
+  flex: 1;
+}
+
+/* 审批状态 */
+.document-status {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.status-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 12rpx;
+}
+
+.status-value {
+  font-size: 24rpx;
+  font-weight: 500;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+}
+
+.status-value.pending {
+  color: #faad14;
+  background-color: #fff7e6;
+}
+
+.status-value.approved {
+  color: #52c41a;
+  background-color: #f6ffed;
+}
+
+.status-value.rejected {
+  color: #ff4d4f;
+  background-color: #fff2f0;
+}
+
+/* 文档操作按钮 */
+.document-actions {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 8rpx;
+}
+
+.btn {
+  flex: 1;
+  padding: 16rpx 0;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #1890ff;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #1890ff;
+  border: 2rpx solid #1890ff;
+}
+
+.btn:active {
+  opacity: 0.8;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 60rpx 20rpx;
+  background-color: white;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 20rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.btn.full-width {
+  width: 100%;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+}
+
+/* 响应式调整 */
+@media (max-width: 375rpx) {
+  .info-label {
+    width: 100rpx;
+  }
+  
+  .document-actions {
+    flex-direction: column;
+  }
+}

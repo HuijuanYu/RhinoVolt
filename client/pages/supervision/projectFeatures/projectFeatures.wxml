@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">🔧 工程特点分析</text>
+    <text class="page-subtitle">工程难点、重点控制部位与关键工序</text>
+  </view>
+  
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">⚠️</text>
+      <text class="title-text">工程难点</text>
+    </view>
+    <view class="feature-list">
+      <view class="feature-item" wx:for="{{difficulties}}" wx:key="id">
+        <view class="feature-number">{{index + 1}}</view>
+        <view class="feature-content">
+          <text class="feature-name">{{item.name}}</text>
+          <text class="feature-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">🎯</text>
+      <text class="title-text">重点控制部位</text>
+    </view>
+    <view class="feature-list">
+      <view class="feature-item" wx:for="{{keyPoints}}" wx:key="id">
+        <view class="feature-number">{{index + 1}}</view>
+        <view class="feature-content">
+          <text class="feature-name">{{item.name}}</text>
+          <text class="feature-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">🛡️ 监理工作措施</text>
+    <text class="page-subtitle">组织、技术、经济、合同措施</text>
+  </view>
+  
+  <view class="measure-list">
+    <view class="measure-card" wx:for="{{measures}}" wx:key="id">
+      <view class="measure-header">
+        <text class="measure-icon">{{item.icon}}</text>
+        <text class="measure-title">{{item.title}}</text>
+      </view>
+      <view class="measure-content">
+        <view class="measure-item" wx:for="{{item.items}}" wx:for-item="subItem" wx:key="index">
+          <view class="item-dot"></view>
+          <text class="item-text">{{subItem}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,352 @@
+/* index.wxss */
+.container {
+  padding: 16px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 用户信息卡片 */
+.user-card {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.avatar-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.user-role {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.user-actions {
+  margin-left: 16px;
+}
+
+.action-btn {
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 通用区块样式 */
+.todo-section,
+.recent-projects {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.section-more {
+  font-size: 14px;
+  color: #1890ff;
+  cursor: pointer;
+}
+
+/* 待办事项列表 */
+.todo-list {
+  margin-top: 8px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-content {
+  flex: 1;
+  margin-right: 16px;
+}
+
+.todo-title {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.todo-time {
+  font-size: 12px;
+  color: #999;
+}
+
+.todo-status {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 快捷入口 */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.action-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e6f7ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.icon-text {
+  font-size: 28px;
+}
+
+.action-text {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+}
+
+/* 最近工程 */
+.project-list {
+  margin-top: 8px;
+}
+
+.project-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.project-item:last-child {
+  border-bottom: none;
+}
+
+.project-name {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.project-progress {
+  font-size: 12px;
+  color: #1890ff;
+  margin-bottom: 8px;
+  display: block;
+  text-align: right;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: #f0f0f0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #1890ff;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* 空状态 */
+.empty {
+  padding: 40px 0;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+/* 监理工作模块 */
+.supervision-section {
+  margin-bottom: 16px;
+}
+
+.supervision-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.supervision-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.supervision-item:active {
+  transform: scale(0.95);
+}
+
+.supervision-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.supervision-icon.site {
+  background-color: #e6f7ff;
+}
+
+.supervision-icon.basis {
+  background-color: #f6ffed;
+}
+
+.supervision-icon.feature {
+  background-color: #fff7e6;
+}
+
+.supervision-icon.flow {
+  background-color: #f9f0ff;
+}
+
+.supervision-icon.method {
+  background-color: #e6fffb;
+}
+
+.supervision-icon.measure {
+  background-color: #fff1f0;
+}
+
+.supervision-icon.quality {
+  background-color: #f0f5ff;
+}
+
+.supervision-icon.schedule {
+  background-color: #fcffe6;
+}
+
+.supervision-text {
+  font-size: 11px;
+  color: #333;
+  text-align: center;
+}
+
+/* 响应式调整 */
+@media (max-width: 375px) {
+  .quick-actions {
+    gap: 12px;
+  }
+  
+  .action-item {
+    padding: 12px;
+  }
+  
+  .action-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon-text {
+    font-size: 14px;
+  }
+  
+  .supervision-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  
+  .supervision-item {
+    padding: 10px 6px;
+  }
+  
+  .supervision-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .supervision-text {
+    font-size: 10px;
+  }
+}

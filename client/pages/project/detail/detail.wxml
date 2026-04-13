@@ -1,0 +1,132 @@
+<view class="container">
+  <!-- 工程基本信息 -->
+  <view class="info-section">
+    <h2>基本信息</h2>
+    <view class="info-grid">
+      <view class="info-item">
+        <text class="info-label">工程名称</text>
+        <text class="info-value">{{project.name}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">工程编号</text>
+        <text class="info-value">{{project.code}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">建设单位</text>
+        <text class="info-value">{{project.owner}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">施工单位</text>
+        <text class="info-value">{{project.constructor}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">监理单位</text>
+        <text class="info-value">{{project.supervisor}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">设计单位</text>
+        <text class="info-value">{{project.designer}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">工程地点</text>
+        <text class="info-value">{{project.location}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">工程造价</text>
+        <text class="info-value">{{project.cost}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 工程进度信息 -->
+  <view class="info-section">
+    <h2>进度信息</h2>
+    <view class="progress-card">
+      <view class="progress-header">
+        <text class="progress-title">当前进度</text>
+        <text class="progress-value">{{project.progress}}%</text>
+      </view>
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{project.progress}}%"></view>
+      </view>
+      <view class="schedule-info">
+        <view class="schedule-item">
+          <text class="schedule-label">计划开始日期</text>
+          <text class="schedule-value">{{project.startDate}}</text>
+        </view>
+        <view class="schedule-item">
+          <text class="schedule-label">计划结束日期</text>
+          <text class="schedule-value">{{project.endDate}}</text>
+        </view>
+        <view class="schedule-item">
+          <text class="schedule-label">实际开始日期</text>
+          <text class="schedule-value">{{project.actualStartDate}}</text>
+        </view>
+        <view class="schedule-item">
+          <text class="schedule-label">预计结束日期</text>
+          <text class="schedule-value">{{project.estimatedEndDate}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 参建单位信息 -->
+  <view class="info-section">
+    <h2>参建单位</h2>
+    <view class="company-list">
+      <view class="company-item" wx:for="{{project.companies}}" wx:key="id">
+        <text class="company-name">{{item.name}}</text>
+        <text class="company-type">{{item.type}}</text>
+        <text class="company-contact">{{item.contact}}</text>
+        <text class="company-phone">{{item.phone}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 工程里程碑 -->
+  <view class="info-section">
+    <h2>里程碑</h2>
+    <view class="milestone-list">
+      <view class="milestone-item" wx:for="{{project.milestones}}" wx:key="id">
+        <view class="milestone-date">{{item.date}}</view>
+        <view class="milestone-content">
+          <text class="milestone-title">{{item.title}}</text>
+          <text class="milestone-description">{{item.description}}</text>
+          <text class="milestone-status" style="color: {{item.status === 'completed' ? '#52c41a' : '#1890ff'}}">
+            {{item.status === 'completed' ? '已完成' : '未完成'}}
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 最近巡检记录 -->
+  <view class="info-section">
+    <h2>最近巡检记录</h2>
+    <view class="inspection-list">
+      <view class="inspection-item" wx:for="{{project.inspections}}" wx:key="id">
+        <text class="inspection-title">{{item.title}}</text>
+        <text class="inspection-date">{{item.date}}</text>
+        <text class="inspection-result" style="color: {{item.result === 'pass' ? '#52c41a' : '#ff4d4f'}}">
+          {{item.result === 'pass' ? '合格' : '不合格'}}
+        </text>
+      </view>
+      <view class="empty" wx:if="{{project.inspections.length === 0}}">
+        <text>暂无巡检记录</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <button class="btn btn-primary" bindtap="handleStartInspection">
+      开始巡检
+    </button>
+    <button class="btn btn-secondary" bindtap="handleEditProject">
+      编辑工程
+    </button>
+    <button class="btn btn-secondary" bindtap="handleViewDocuments">
+      查看文档
+    </button>
+  </view>
+</view>

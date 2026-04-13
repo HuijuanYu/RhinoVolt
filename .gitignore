@@ -1,0 +1,35 @@
+# GreenRhino .gitignore
+
+# 微信小程序
+client/miniprogram_npm/
+client/node_modules/
+client/.eslintcache
+client/package-lock.json
+
+# 服务端
+server/node_modules/
+server/__pycache__/
+server/*.pyc
+server/.env
+server/dist/
+server/logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 构建产物
+*.min.js
+*.min.css
+*.log
+
+# Git
+# （保留.gitignore本身，不提交敏感配置）
+# resources/config/local_*.json

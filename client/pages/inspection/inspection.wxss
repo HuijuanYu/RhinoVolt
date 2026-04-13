@@ -1,0 +1,190 @@
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 页面标题 */
+.page-header {
+  margin-bottom: 30rpx;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 巡检任务列表 */
+.inspection-list {
+  margin-bottom: 100rpx;
+}
+
+/* 区域标题 */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.task-count {
+  font-size: 24rpx;
+  color: #999;
+  background-color: #f0f0f0;
+  padding: 4rpx 16rpx;
+  border-radius: 12rpx;
+}
+
+/* 任务卡片 */
+.task-card {
+  background-color: white;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.task-card.completed {
+  opacity: 0.8;
+}
+
+/* 任务头部 */
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.task-icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+
+.task-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+  margin-right: 20rpx;
+  line-height: 1.4;
+}
+
+/* 任务状态 */
+.task-status {
+  font-size: 20rpx;
+  font-weight: 500;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+}
+
+.task-status.pending {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
+.task-status.completed {
+  background-color: #f6ffed;
+  color: #52c41a;
+}
+
+/* 任务信息 */
+.task-info {
+  margin-bottom: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  margin-bottom: 12rpx;
+}
+
+.info-label {
+  font-size: 24rpx;
+  color: #999;
+  width: 120rpx;
+  flex-shrink: 0;
+}
+
+.info-value {
+  font-size: 24rpx;
+  color: #333;
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* 任务操作按钮 */
+.task-actions {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 8rpx;
+}
+
+.btn {
+  flex: 1;
+  padding: 20rpx 0;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #1890ff;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #1890ff;
+  border: 2rpx solid #1890ff;
+}
+
+.btn:active {
+  opacity: 0.8;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 60rpx 20rpx;
+  background-color: white;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 20rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.btn.full-width {
+  width: 100%;
+}
+
+/* 响应式调整 */
+@media (max-width: 375rpx) {
+  .info-label {
+    width: 100rpx;
+  }
+  
+  .task-actions {
+    flex-direction: column;
+  }
+}

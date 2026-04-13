@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">🔄 监理工作流程</text>
+    <text class="page-subtitle">质量、进度、投资、安全控制流程</text>
+  </view>
+  
+  <view class="flow-list">
+    <view class="flow-card" wx:for="{{flows}}" wx:key="id">
+      <view class="flow-header">
+        <text class="flow-icon">{{item.icon}}</text>
+        <text class="flow-title">{{item.title}}</text>
+      </view>
+      <view class="flow-steps">
+        <view class="step-item" wx:for="{{item.steps}}" wx:for-item="step" wx:key="index">
+          <view class="step-dot"></view>
+          <text class="step-text">{{step}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/register/register",
+    "pages/index/index",
+    "pages/supervision/siteOverview/siteOverview",
+    "pages/supervision/workBasis/workBasis",
+    "pages/supervision/projectFeatures/projectFeatures",
+    "pages/supervision/workFlow/workFlow",
+    "pages/supervision/workMethod/workMethod",
+    "pages/supervision/workMeasure/workMeasure",
+    "pages/supervision/qualityControl/qualityControl",
+    "pages/supervision/scheduleControl/scheduleControl",
+    "pages/project/project",
+    "pages/inspection/inspection",
+    "pages/inspection/detail/detail",
+    "pages/inspection/create/create",
+    "pages/document/document"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1890ff",
+    "navigationBarTitleText": "电力新能源",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/project/project",
+        "text": "工程"
+      },
+      {
+        "pagePath": "pages/inspection/inspection",
+        "text": "巡检"
+      },
+      {
+        "pagePath": "pages/document/document",
+        "text": "文档"
+      }
+    ],
+    "color": "#666666",
+    "selectedColor": "#1890ff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

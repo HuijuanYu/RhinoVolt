@@ -1,0 +1,75 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">⏱️ 进度控制</text>
+    <text class="page-subtitle">进度计划审核、检查与调整</text>
+  </view>
+  
+  <!-- 进度概况 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">📊</text>
+      <text class="title-text">进度概况</text>
+    </view>
+    <view class="schedule-overview">
+      <view class="overview-item">
+        <text class="overview-label">计划工期</text>
+        <text class="overview-value">540 天</text>
+      </view>
+      <view class="overview-item">
+        <text class="overview-label">已进行</text>
+        <text class="overview-value">243 天</text>
+      </view>
+      <view class="overview-item">
+        <text class="overview-label">剩余工期</text>
+        <text class="overview-value">297 天</text>
+      </view>
+      <view class="overview-item">
+        <text class="overview-label">总体进度</text>
+        <text class="overview-value highlight">45%</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 进度计划 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">📅</text>
+      <text class="title-text">进度计划</text>
+    </view>
+    <view class="plan-list">
+      <view class="plan-item" wx:for="{{plans}}" wx:key="id">
+        <view class="plan-header">
+          <text class="plan-name">{{item.name}}</text>
+          <text class="plan-status {{item.status}}">{{item.statusText}}</text>
+        </view>
+        <view class="plan-progress">
+          <view class="progress-bar">
+            <view class="progress-fill" style="width: {{item.progress}}%"></view>
+          </view>
+          <text class="progress-text">{{item.progress}}%</text>
+        </view>
+        <view class="plan-time">
+          <text class="time-item">开始：{{item.startDate}}</text>
+          <text class="time-item">结束：{{item.endDate}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 进度预警 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">⚠️</text>
+      <text class="title-text">进度预警</text>
+    </view>
+    <view class="warning-list">
+      <view class="warning-item" wx:for="{{warnings}}" wx:key="id">
+        <view class="warning-level {{item.level}}">{{item.levelText}}</view>
+        <view class="warning-content">
+          <text class="warning-title">{{item.title}}</text>
+          <text class="warning-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

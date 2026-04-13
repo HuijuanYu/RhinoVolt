@@ -1,0 +1,74 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">📋 监理工作依据</text>
+    <text class="page-subtitle">法律法规、合同文件与技术标准</text>
+  </view>
+  
+  <!-- 法律法规 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">⚖️</text>
+      <text class="title-text">法律法规</text>
+    </view>
+    <view class="basis-list">
+      <view class="basis-item" wx:for="{{laws}}" wx:key="id">
+        <view class="basis-number">{{index + 1}}</view>
+        <view class="basis-content">
+          <text class="basis-name">{{item.name}}</text>
+          <text class="basis-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 合同文件 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">📄</text>
+      <text class="title-text">合同文件</text>
+    </view>
+    <view class="basis-list">
+      <view class="basis-item" wx:for="{{contracts}}" wx:key="id">
+        <view class="basis-number">{{index + 1}}</view>
+        <view class="basis-content">
+          <text class="basis-name">{{item.name}}</text>
+          <text class="basis-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 设计文件 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">📐</text>
+      <text class="title-text">设计文件</text>
+    </view>
+    <view class="basis-list">
+      <view class="basis-item" wx:for="{{designs}}" wx:key="id">
+        <view class="basis-number">{{index + 1}}</view>
+        <view class="basis-content">
+          <text class="basis-name">{{item.name}}</text>
+          <text class="basis-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 技术标准 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">📏</text>
+      <text class="title-text">技术标准</text>
+    </view>
+    <view class="basis-list">
+      <view class="basis-item" wx:for="{{standards}}" wx:key="id">
+        <view class="basis-number">{{index + 1}}</view>
+        <view class="basis-content">
+          <text class="basis-name">{{item.name}}</text>
+          <text class="basis-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

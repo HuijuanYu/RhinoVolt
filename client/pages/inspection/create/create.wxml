@@ -1,0 +1,104 @@
+<view class="container">
+  <!-- 选择模板 -->
+  <view class="section">
+    <view class="section-title">选择模板</view>
+    <view class="template-list">
+      <view 
+        class="template-item {{selectedTemplate && selectedTemplate.id === item.id ? 'selected' : ''}}" 
+        wx:for="{{templates}}" 
+        wx:key="id"
+        bindtap="selectTemplate"
+        data-id="{{item.id}}"
+      >
+        <text class="template-name">{{item.name}}</text>
+        <text class="template-desc">{{item.description}}</text>
+        <view class="template-check" wx:if="{{selectedTemplate && selectedTemplate.id === item.id}}">✓</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 巡检信息 -->
+  <view class="section">
+    <view class="section-title">巡检信息</view>
+    
+    <view class="form-item">
+      <text class="form-label">选择项目</text>
+      <picker bindchange="bindProjectChange" value="{{projectIndex}}" range="{{projects}}" range-key="name">
+        <view class="picker">
+          {{projectName || '请选择项目'}}
+        </view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">巡检标题</text>
+      <input class="form-input" placeholder="请输入巡检标题" bindinput="bindTitleInput" value="{{title}}" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">巡检位置</text>
+      <input class="form-input" placeholder="请输入巡检位置" bindinput="bindLocationInput" value="{{location}}" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">巡检内容</text>
+      <textarea class="form-textarea" placeholder="请输入巡检内容" bindinput="bindContentInput" value="{{content}}" />
+    </view>
+  </view>
+
+  <!-- 照片 -->
+  <view class="section">
+    <view class="section-title">照片 ({{photos.length}}/9)</view>
+    <view class="media-grid">
+      <view class="media-item photo" wx:for="{{photos}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill" bindtap="previewPhoto" data-index="{{index}}" />
+        <view class="delete-btn" bindtap="deletePhoto" data-index="{{index}}">×</view>
+      </view>
+      <view class="media-item add-btn" wx:if="{{photos.length < 9}}" bindtap="takePhoto">
+        <text class="add-icon">📷</text>
+        <text class="add-text">拍照</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 录音 -->
+  <view class="section">
+    <view class="section-title">录音 (已录制{{audios.length}}条)</view>
+    
+    <!-- 录音按钮 -->
+    <view class="record-section">
+      <button 
+        class="record-btn {{isRecording ? 'recording' : ''}}" 
+        bindtap="{{isRecording ? 'stopRecord' : 'startRecord'}}"
+      >
+        {{isRecording ? '⏹ 停止录音 (' + formatTime(recordTime) + ')' : '🎤 开始录音'}}
+      </button>
+    </view>
+    
+    <!-- 录音列表 -->
+    <view class="audio-list" wx:if="{{audios.length > 0}}">
+      <view class="audio-item" wx:for="{{audios}}" wx:key="*this">
+        <view class="audio-info">
+          <text class="audio-icon">🔊</text>
+          <text class="audio-time">{{formatTime(item.duration / 1000)}}</text>
+        </view>
+        <view class="audio-actions">
+          <button class="audio-btn play" size="mini" bindtap="playAudio" data-index="{{index}}">播放</button>
+          <button class="audio-btn delete" size="mini" bindtap="deleteAudio" data-index="{{index}}">删除</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="bottom-bar">
+    <button 
+      class="btn btn-primary full-width" 
+      bindtap="submitInspection"
+      loading="{{loading}}"
+      disabled="{{loading}}"
+    >
+      {{loading ? '提交中...' : '提交巡检'}}
+    </button>
+  </view>
+</view>

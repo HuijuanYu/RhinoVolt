@@ -1,0 +1,66 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">✨ 质量控制</text>
+    <text class="page-subtitle">材料、工序、隐蔽工程与验收管理</text>
+  </view>
+  
+  <!-- 质量控制要点 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">🎯</text>
+      <text class="title-text">质量控制要点</text>
+    </view>
+    <view class="control-list">
+      <view class="control-item" wx:for="{{controlPoints}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+        <view class="control-icon">{{item.icon}}</view>
+        <view class="control-content">
+          <text class="control-name">{{item.name}}</text>
+          <text class="control-desc">{{item.description}}</text>
+        </view>
+        <view class="control-arrow">></view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 质量检查记录 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">📝</text>
+      <text class="title-text">质量检查记录</text>
+    </view>
+    <view class="record-list">
+      <view class="record-item" wx:for="{{records}}" wx:key="id">
+        <view class="record-header">
+          <text class="record-title">{{item.title}}</text>
+          <text class="record-status {{item.status}}">{{item.statusText}}</text>
+        </view>
+        <view class="record-info">
+          <text class="record-time">{{item.time}}</text>
+          <text class="record-checker">检查人：{{item.checker}}</text>
+        </view>
+      </view>
+    </view>
+    <button class="btn-add" bindtap="addRecord">+ 新增检查记录</button>
+  </view>
+  
+  <!-- 质量问题整改 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="title-icon">🔧</text>
+      <text class="title-text">质量问题整改</text>
+    </view>
+    <view class="issue-list">
+      <view class="issue-item" wx:for="{{issues}}" wx:key="id">
+        <view class="issue-header">
+          <text class="issue-title">{{item.title}}</text>
+          <text class="issue-priority {{item.priority}}">{{item.priorityText}}</text>
+        </view>
+        <text class="issue-desc">{{item.description}}</text>
+        <view class="issue-footer">
+          <text class="issue-deadline">整改期限：{{item.deadline}}</text>
+          <text class="issue-status {{item.status}}">{{item.statusText}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

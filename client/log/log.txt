@@ -1,0 +1,152 @@
+app.js:5 小程序启动
+app.js:16 小程序显示
+VM75:363 Error: not node js file system!path:/saaa_config.json; go __invokeHandler__ readFile worker? false
+_ @ VM75:363
+a.WeixinJSCore.invokeHandler @ VM75:363
+_ @ WAServiceMainContext.js:1
+invoke @ WAServiceMainContext.js:1
+invoke @ WAServiceMainContext.js:1
+u @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+ae @ WAServiceMainContext.js:1
+o @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+f2 @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emitInternal @ WAServiceMainContext.js:1
+e @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emitInternal @ WAServiceMainContext.js:1
+p @ WAServiceMainContext.js:1
+b @ WAServiceMainContext.js:1
+D @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+_emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+subscribeHandler @ WAServiceMainContext.js:1
+ret.subscribeHandler
+Show 3 more frames
+VM75:363 error occurs:no such file or directory, open 'wxfile://ad/interstitialAdExtInfo.txt'
+p @ VM75:363
+(anonymous) @ VM75:363
+emit @ node:events:512
+emitErrorNT @ node:internal/streams/destroy:151
+emitErrorCloseNT @ node:internal/streams/destroy:116
+processTicksAndRejections @ node:internal/process/task_queues:82
+VM75:363 error occurs:no such file or directory, access 'wxfile://usr/miniprogramLog/'
+p @ VM75:363
+(anonymous) @ VM75:363
+(anonymous) @ node:fs:181
+VM75:363 error occurs:no such file or directory, access 'wxfile://usr/miniprogramLog/log1'
+p @ VM75:363
+(anonymous) @ VM75:363
+(anonymous) @ node:fs:181
+app.js:21 小程序隐藏
+VM75:363 Error: not node js file system!path:/saaa_config.json; go __invokeHandler__ readFile worker? false
+_ @ VM75:363
+a.WeixinJSCore.invokeHandler @ VM75:363
+_ @ WAServiceMainContext.js:1
+invoke @ WAServiceMainContext.js:1
+invoke @ WAServiceMainContext.js:1
+u @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+ae @ WAServiceMainContext.js:1
+o @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+f2 @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emitInternal @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+I @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+_emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+subscribeHandler @ WAServiceMainContext.js:1
+ret.subscribeHandler
+app.js:16 小程序显示
+app.js:21 小程序隐藏
+VM75:363 Error: not node js file system!path:/saaa_config.json; go __invokeHandler__ readFile worker? false
+_ @ VM75:363
+a.WeixinJSCore.invokeHandler @ VM75:363
+_ @ WAServiceMainContext.js:1
+invoke @ WAServiceMainContext.js:1
+invoke @ WAServiceMainContext.js:1
+u @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+ae @ WAServiceMainContext.js:1
+o @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+f2 @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emitInternal @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+I @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+_emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+subscribeHandler @ WAServiceMainContext.js:1
+ret.subscribeHandler
+app.js:16 小程序显示
+app.js:21 小程序隐藏
+VM75:363 Error: not node js file system!path:/saaa_config.json; go __invokeHandler__ readFile worker? false
+_ @ VM75:363
+a.WeixinJSCore.invokeHandler @ VM75:363
+_ @ WAServiceMainContext.js:1
+invoke @ WAServiceMainContext.js:1
+invoke @ WAServiceMainContext.js:1
+u @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+ae @ WAServiceMainContext.js:1
+o @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+f2 @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emitInternal @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+I @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+c.emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+(anonymous) @ WAServiceMainContext.js:1
+_emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+emit @ WAServiceMainContext.js:1
+subscribeHandler @ WAServiceMainContext.js:1
+ret.subscribeHandler
+app.js:16 小程序显示
+app.js:21 小程序隐藏
