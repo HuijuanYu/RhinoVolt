@@ -57,12 +57,6 @@
       </view>
       <text class="action-text">文档管理</text>
     </view>
-    <view class="action-item" bindtap="navigateToApproval">
-      <view class="action-icon">
-        <text class="icon-text">✅</text>
-      </view>
-      <text class="action-text">审批流程</text>
-    </view>
   </view>
   
   <!-- 监理工作模块 -->
