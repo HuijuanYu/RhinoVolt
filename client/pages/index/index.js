@@ -124,12 +124,12 @@ Page({
     });
   },
 
-  // 跳转到审批页面
-  navigateToApproval() {
-    wx.navigateTo({
-      url: '../approval/approval'
-    });
-  },
+  // 跳转到审批页面（已禁用 - approval页面不存在）
+  // navigateToApproval() {
+  //   wx.navigateTo({
+  //     url: '../approval/approval'
+  //   });
+  // }
 
   // 跳转到工地概况页面
   navigateToSiteOverview() {

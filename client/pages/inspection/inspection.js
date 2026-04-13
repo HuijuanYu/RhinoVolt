@@ -129,9 +129,9 @@ Page({
     const taskId = e.currentTarget.dataset.id;
     console.log('查看巡检记录，任务ID:', taskId);
     
-    // 跳转到巡检记录详情页面
+    // 跳转到巡检详情页面（record页面不存在，使用已存在的detail页面）
     wx.navigateTo({
-      url: `/pages/inspection/record/record?id=${taskId}`
+      url: `/pages/inspection/detail/detail?id=${taskId}&viewOnly=true`
     });
   },
 
