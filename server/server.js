@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
@@ -11,18 +12,18 @@ app.use(bodyParser.json());
 
 // 数据库配置
 const dbConfig = {
-  host: 'rm-bp1bclk1q07od6b5d.mysql.rds.aliyuncs.com',
-  user: 'supervisor',
-  password: '198110aS',
-  database: 'supervisor_db',
-  port: 3306
+  host: process.env.DB_HOST || 'rm-bp1bclk1q07od6b5d.mysql.rds.aliyuncs.com',
+  user: process.env.DB_USER || 'supervisor',
+  password: process.env.DB_PASSWORD || '198110aS',
+  database: process.env.DB_NAME || 'supervisor_db',
+  port: parseInt(process.env.DB_PORT) || 3306
 };
 
 // 创建数据库连接池
 const pool = mysql.createPool(dbConfig);
 
 // JWT密钥
-const JWT_SECRET = 'supervisor_miniprogram_2024';
+const JWT_SECRET = process.env.JWT_SECRET || 'supervisor_miniprogram_2024';
 
 // 健康检查接口（无需认证）
 app.get('/api/health', (req, res) => {
